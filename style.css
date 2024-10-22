@@ -1,0 +1,117 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.main{
+    display: flex;
+}
+.mainleft{
+    margin:1vh
+}
+.mainright{
+    width: 100%;
+    margin-top: 1.6em;
+}
+
+.header > .trainName{
+    flex: 1;
+}
+
+.infoTime{
+    display: flex;
+    justify-content: space-between;
+}
+
+.infoTime > #departureTime{
+    flex: 1;
+}
+
+.infoCode{
+    display: flex;
+    justify-content: space-between;
+}
+
+.infoCode > #srcCode{
+    flex: 1;
+}
+
+.infoCode > #time{
+    flex:1;
+}
+
+.infoCodeLong{
+    display:  flex;
+    justify-content: space-between;
+}
+
+.infoCodeLong > #srcName{
+    flex:1;
+}
+
+.platform{
+    display: flex;
+    justify-content: space-between;
+}
+
+.platform > #pf1{
+    flex: 1;
+}
+
+
+
+#status{
+    background-color: rgb(255, 193, 78);
+    color:white;
+    width: 100%;
+}
+
+#pnrNo{
+    font-weight: bold;
+}
+
+#overallStatus{
+    font-weight: bold;
+}
+
+#trainNumber{
+    font-weight: bold;
+}
+
+#journeyClass{
+    font-weight: bold;
+}
+
+#srcCode,#dstCode{
+    font-weight: bold;
+}
+
+#chartStatus{
+    font-weight: bold;
+}
+
+#departureTime,#arrivalTime{
+    font-size: 12px;
+    opacity: 60%;
+}
+
+#srcName,#dstName{
+    font-size: 13px;
+    opacity: 70%;
+}
+
+#pf1,#pf2,#chartPrepMsg,#pnrLastUpdated,#quota{
+    font-size: 12px;
+    opacity: 60%;
+}
+
+#runing{
+    font-size: 10px
+}
