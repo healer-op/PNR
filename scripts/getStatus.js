@@ -43,7 +43,12 @@ async function getPnrData() {
             document.getElementById("pnrLastUpdated").innerHTML = data.pnrLastUpdated
             document.getElementById("quota").innerHTML = data.quota
             document.getElementById("runing").href = `${live_status}`
-            document.getElementById("passengers").innerText = `${data.passengers[0].confirmProb}%`
+            
+            let pd = data.passengers
+            const passengers_html = pd.map((f, i) => {
+                return `<p>○ ${pd[i].name} | ${pd[i].currentStatus} | ${pd[i].currentSeatDetails} | ${pd[i].berthType} | ${pd[i].confirmProb}</p>`;
+            }).join('');
+            document.querySelector("#passengers").insertAdjacentHTML("afterbegin", passengers_html);
 
             setInterval(() => {
                 document.title = `PNR`
@@ -54,8 +59,13 @@ async function getPnrData() {
 
         } catch (error) {
             document.getElementById("root").innerHTML =""
-            document.write(`${error}`);
-            document.write(`<p>Get Api Access From <a href="https://cors-anywhere.herokuapp.com/" target="_blank">Here!</a> Click on Request Temporary Access and reload the pnr page!</p>`)
+            document.write(`<p id="error">${error}</p>`);
+            let err = document.getElementById("error").innerText
+            if(err.includes(`SyntaxError: Unexpected token 'T', "The origin"... is not valid JSON`)){
+                document.write(`to many request on api please wait`)
+            }else{
+                document.write(`<p>Get Api Access From <a href="https://cors-anywhere.herokuapp.com/" target="_blank">Here!</a> Click on Request Temporary Access and reload the pnr page!</p>`)
+            }
             console.log(error)
         }
     }else{
