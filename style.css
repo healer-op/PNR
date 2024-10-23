@@ -3,7 +3,19 @@
     padding: 0px;
 }
 
+iframe{
+    width: 99%;
+    height: 66vh;
+}
 
+span{
+    transition: 0.3s;
+}
+
+span:hover{
+    letter-spacing: 2px;
+    color:red;
+}
 
 .header{
     display: flex;

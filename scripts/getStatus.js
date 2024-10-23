@@ -19,8 +19,9 @@ async function getPnrData() {
         try {
             let data = await (await fetch(`${BASE_URL}${PNR}`,requestOptions)).json();
 
-            let live_status = `https://www.redbus.in/railways/liveTrainDetails?trainNo=${data.trainNumber}&trainName=${encodeURIComponent(data.trainName)}&stn=null&from=LTS%20Home`
+            let live_status = `https://www.confirmtkt.com/train-running-status/${data.trainNumber}`
             
+            document.getElementById("frame").src= `${live_status}`
             document.getElementById("qrimg").src=`https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(window.location.href)}&size=400x400&color=105-255-107&bgcolor=1a1a1a`
             document.getElementById("pnrNo").innerHTML = data.pnrNo
             document.getElementById("overallStatus").innerHTML = data.overallStatus
@@ -42,6 +43,7 @@ async function getPnrData() {
             document.getElementById("pnrLastUpdated").innerHTML = data.pnrLastUpdated
             document.getElementById("quota").innerHTML = data.quota
             document.getElementById("runing").href = `${live_status}`
+            document.getElementById("passengers").innerText = `${data.passengers[0].confirmProb}%`
 
             setInterval(() => {
                 document.title = `PNR`
@@ -53,6 +55,7 @@ async function getPnrData() {
         } catch (error) {
             document.getElementById("root").innerHTML =""
             document.write(`${error}`);
+            document.write(`<p>Get Api Access From <a href="https://cors-anywhere.herokuapp.com/" target="_blank">Here!</a> Click on Request Temporary Access and reload the pnr page!</p>`)
             console.log(error)
         }
     }else{

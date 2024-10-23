@@ -36,7 +36,7 @@
         height: 100vh;
         top: 0;
         background: #fff
-        url('https://media.giphy.com/media/uyd7yTQqMzzqXSM01I/giphy.gif')
+        url('https://media.giphy.com/media/CYbFGFjxrWbS5Lx6th/giphy.gif')
          no-repeat center center;	
         z-index: 999999;
       }
@@ -59,7 +59,7 @@
            };
         </script>
 
-        <hr style="margin-top: 16vh">
+        <hr>
         <div class="main" >
             <div class="mainleft">
                 <img id="qrimg" src="img_girl.jpg" alt="qr" width="100">
@@ -67,6 +67,7 @@
             <div class="mainright">
                 <p id="pnr">PNR: <SPAN id="pnrNo"></SPAN></p>
                 <p id="status">STATUS: <SPAN id="overallStatus"></SPAN></p>
+                <p id="chance">CHANCE: <SPAN id="passengers"></SPAN></p>
             </div>
             
         </div>
@@ -86,17 +87,17 @@
 
         <div class="infoGraph">
             <div class="infoTime">
-                <p id="departureTime"></p>
-                <p id="arrivalTime"></p>
+                <span id="departureTime"></span>
+                <span id="arrivalTime"></span>
             </div>
             <div class="infoCode">
-                <p id="srcCode"></p>
+                <span id="srcCode"></span>
                 <p id="time"> - <span id="duration"></span> - </p>
-                <p id="dstCode"></p>
+                <span id="dstCode"></span>
             </div>
             <div class="infoCodeLong">
-                <p id="srcName"></p>
-                <p id="dstName"></p>
+                <span id="srcName"></span>
+                <span id="dstName"></span>
             </div>
             <div class="platform">
                 <p id="pf1">Platform: <span id="srcPfNo"></span></p>
@@ -106,10 +107,10 @@
 
         <hr>
 
-        <p id="chartStatus"></p>
-        <p id="chartPrepMsg"></p>
-        <p id="pnrLastUpdated"></p>
-        <p id="quota"></p>
+        <span id="chartStatus"></span><br>
+        <span id="chartPrepMsg"></span><br>
+        <span id="pnrLastUpdated"></span><br>
+        <span id="quota"></span><br>
         <a id="runing" href="" target="_blank">Live Running Status</a>
 
         <hr>
@@ -117,6 +118,7 @@
             Made With Love By ~ <a href="https://github.com/healer-op" target="_blank">Healer-op</a>
         </center>
         <hr>
+        <iframe id="frame" src=""></iframe>
             <script src="scripts/getStatus.js"></script>
     </body>
 </html>
